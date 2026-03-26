@@ -5,7 +5,7 @@
 Este repositorio contiene una guía básica para aprender a usar Git y GitHub desde cero.
 Está diseñado para que cualquier persona pueda seguir los pasos fácilmente, incluso sin experiencia previa.
 
-📄 Basado en el material: example/introduccion_Git.pdf
+📄 Basado en el material: /Introduccion_Git.pdf
 
 ---
 
