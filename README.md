@@ -1,7 +1,4 @@
-```md
-![Git](https://img.shields.io/badge/Git-Control%20de%20Versiones-orange?style=for-the-badge&logo=git)
-![GitHub](https://img.shields.io/badge/GitHub-Repositorios-black?style=for-the-badge&logo=github)
-```
+
 
 # 📘 Introducción a Git y Control de Versiones
 
@@ -65,10 +62,6 @@ git init
 ---
 
 ## 🔄 Flujo básico
-
-<p align="center">
-  <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" width="400"/>
-</p>
 
 ```bash
 git add .
