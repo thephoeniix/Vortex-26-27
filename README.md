@@ -1,11 +1,13 @@
-
+```md
+![Git](https://img.shields.io/badge/Git-Control%20de%20Versiones-orange?style=for-the-badge&logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-Repositorios-black?style=for-the-badge&logo=github)
+```
 
 # 📘 Introducción a Git y Control de Versiones
 
-Este repositorio contiene una guía básica para aprender a usar Git y GitHub desde cero.
-Está diseñado para que cualquier persona pueda seguir los pasos fácilmente, incluso sin experiencia previa.
-
-📄 Basado en el material: /Introduccion_Git.pdf
+<p align="center">
+  <img src="https://media.giphy.com/media/kH1DBkPNyZPOk0BxrM/giphy.gif" width="400"/>
+</p>
 
 ---
 
@@ -13,89 +15,94 @@ Está diseñado para que cualquier persona pueda seguir los pasos fácilmente, i
 
 Git es un sistema de control de versiones que permite:
 
-* Guardar el historial completo de cambios
-* Trabajar en equipo sin conflictos
-* Recuperar versiones anteriores
-* Proteger tu código ante errores o pérdidas
+* 📂 Guardar historial de cambios
+* 👥 Trabajar en equipo
+* ⏪ Volver a versiones anteriores
+* 🔒 Proteger tu código
 
 ---
 
 ## 🛠️ Instalación
 
-1. Descargar Git desde: [https://git-scm.com](https://git-scm.com)
-2. Instalar con las opciones por defecto
-3. Verificar instalación:
+<p align="center">
+  <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="400"/>
+</p>
+
+1. Descargar: [https://git-scm.com](https://git-scm.com)
+2. Instalar con opciones por defecto
+3. Verificar:
 
 ```bash
 git --version
 ```
 
+💡 Si ves un número → todo bien
+
 ---
 
 ## ⚙️ Configuración inicial
-
-Antes de usar Git, configura tu identidad:
 
 ```bash
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@email.com"
 ```
 
+💡 Git usará estos datos en tus commits
+
 ---
 
-## 📁 Crear tu primer repositorio
+## 📁 Crear repositorio
+
+<p align="center">
+  <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="400"/>
+</p>
 
 ```bash
-cd ruta/a/tu/proyecto
+cd nuevo_proyecto
 git init
 ```
 
 ---
 
-## 🔄 Flujo básico de trabajo
+## 🔄 Flujo básico
 
-1. Modificar archivos
-2. Agregar cambios:
+<p align="center">
+  <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" width="400"/>
+</p>
 
 ```bash
 git add .
+git commit -m "Mi cambio"
 ```
 
-3. Guardar cambios (commit):
+💡 Flujo:
 
-```bash
-git commit -m "Descripción del cambio"
-```
+* Editas → `add` → `commit`
 
 ---
 
 ## 🔍 Comandos útiles
 
 ```bash
-git status   # Ver estado
-git log      # Ver historial
-git diff     # Ver cambios
+git status   # estado
+git log      # historial
+git diff     # cambios
 ```
 
 ---
 
-## 🌿 Trabajar con ramas
-
-Crear una rama:
+## 🌿 Ramas
 
 ```bash
 git branch mi-rama
-```
-
-Cambiar de rama:
-
-```bash
 git checkout mi-rama
 ```
 
+💡 Trabaja sin romper el código principal
+
 ---
 
-## 🔀 Merge (Unir ramas)
+## 🔀 Merge
 
 ```bash
 git checkout main
@@ -104,17 +111,10 @@ git merge mi-rama
 
 ---
 
-## ☁️ Subir proyecto a GitHub
-
-1. Conectar repositorio:
+## ☁️ Subir a GitHub
 
 ```bash
 git remote add origin URL
-```
-
-2. Subir cambios:
-
-```bash
 git push -u origin main
 ```
 
@@ -130,82 +130,64 @@ git clone URL
 
 ## 👥 Trabajo en equipo
 
-Flujo recomendado:
-
 ```bash
 git pull
 git checkout -b mi-rama
-# haces cambios
 git add .
-git commit -m "Mi cambio"
+git commit -m "Cambio"
 git push origin mi-rama
 ```
 
-Luego haces un **Pull Request en GitHub**.
+💡 Luego haces Pull Request en GitHub
 
 ---
 
-## ⚠️ Errores comunes y soluciones
-
-### ❌ Error al iniciar sesión en GitHub
-
-Si tienes problemas de autenticación (muy común):
-
-👉 GitHub ya no usa contraseña, usa **Personal Access Token (PAT)**
-
-### ✅ Solución:
-
-1. Ir a: [https://github.com/settings/tokens](https://github.com/settings/tokens)
-2. Crear un **Personal Access Token**
-3. Usar ese token como contraseña al hacer `git push`
+# ⚠️ ERRORES COMUNES
 
 ---
 
-## 🔐 Error al iniciar sesión (Token / Password)
-
-Si al hacer `git push` te pide usuario y contraseña, y falla:
+## 🔐 Error de login (MUY COMÚN)
 
 ```bash
 Username for 'https://github.com':
 Password for 'https://github.com':
 ```
 
-👉 Esto pasa porque GitHub ya no usa contraseñas normales.
+👉 GitHub ya NO usa contraseña
 
 ---
 
-### ❌ Solución 1: Usar Personal Access Token (PAT)
+## ❌ Solución 1: Token
 
-1. Ve a: [https://github.com/settings/tokens](https://github.com/settings/tokens)
-2. Genera un **Personal Access Token**
-3. Usa ese token como contraseña
+1. [https://github.com/settings/tokens](https://github.com/settings/tokens)
+2. Crear token
+3. Usarlo como contraseña
 
 ---
 
-### ✅ Solución 2 (RECOMENDADA): Usar SSH 🔥
+## ✅ Solución 2 (MEJOR): SSH 🚀
 
-Con SSH ya no necesitas tokens ni contraseñas.
+<p align="center">
+  <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="400"/>
+</p>
 
-#### 1. Cambia tu repositorio a SSH:
+### 1. Cambiar repo a SSH
 
 ```bash
 git remote set-url origin git@github.com:TU_USUARIO/TU_REPO.git
 ```
 
-#### 2. Verifica:
+---
+
+### 2. Verificar
 
 ```bash
 git remote -v
 ```
 
-Debe aparecer:
+---
 
-```bash
-origin  git@github.com:TU_USUARIO/TU_REPO.git (fetch)
-origin  git@github.com:TU_USUARIO/TU_REPO.git (push)
-```
-
-#### 3. Haz push:
+### 3. Push
 
 ```bash
 git push
@@ -213,23 +195,21 @@ git push
 
 ---
 
-### 🎯 Resultado
+## 🎯 Resultado
 
-* ❌ No más usuario
-* ❌ No más tokens
-* ✅ Conexión automática segura
+* ❌ Sin usuario
+* ❌ Sin token
+* ✅ Automático
 
 ---
 
-### ⚠️ Nota
-
-La primera vez puede pedir confirmación:
+## ⚠️ Primera vez
 
 ```bash
 The authenticity of host 'github.com' can't be established...
 ```
 
-Solo escribe:
+👉 Escribe:
 
 ```bash
 yes
@@ -237,37 +217,25 @@ yes
 
 ---
 
-## 💡 Recomendación
-
-Usa **SSH siempre** para evitar problemas de autenticación.
-
-
-## 🧠 Conflictos de merge
-
-Si ocurre un conflicto:
-
-1. Git marcará el archivo
-2. Edita manualmente el contenido
-3. Luego:
+## 🧠 Conflictos
 
 ```bash
 git add .
-git commit -m "Resuelto conflicto"
+git commit -m "Conflicto resuelto"
 ```
 
 ---
 
 ## 📌 Buenas prácticas
 
-* ✔️ Hacer commits frecuentes
-* ✔️ Escribir mensajes claros
+* ✔️ Commits frecuentes
+* ✔️ Mensajes claros
 * ✔️ Usar ramas
-* ❌ No trabajar directo en `main`
-* ❌ No subir archivos innecesarios
+* ❌ No usar `main` directo
 
 ---
 
-## 📚 Comandos básicos (resumen)
+## 📚 Cheat Sheet
 
 ```bash
 git init
@@ -284,8 +252,8 @@ git merge
 
 ## 🎯 Conclusión
 
-Git es una herramienta esencial para cualquier programador.
-Te permite trabajar mejor en equipo, mantener tu código seguro y tener control total sobre tus cambios.
+Git = herramienta esencial 🚀
+Te ayuda a trabajar mejor, más seguro y en equipo.
 
 
 
