@@ -4,7 +4,7 @@
 # 🤖 PROS + Control de Robots (VEX)
 
 <p align="center">
-  <img src="example/Images/PROS.png" width="500"/>
+  <img src="Images/PROS.png" width="500"/>
 </p>
 
 ---
@@ -20,7 +20,7 @@
 # 🛠️ Instalación
 
 <p align="center">
-  <img src="example/Images/PROS_extensiones.png" width="500"/>
+  <img src="Images/PROS_extensiones.png" width="500"/>
 </p>
 
 1. Abre VS Code
@@ -33,8 +33,8 @@
 # 📁 Crear proyecto
 
 <p align="center">
-  <img src="example/Images/CreateProject.png" width="400"/>
-  <img src="example/Images/Create_PROS.png" width="400"/>
+  <img src="Images/CreateProject.png" width="400"/>
+  <img src="Images/Create_PROS.png" width="400"/>
 </p>
 
 1. Click en **Create Project**
@@ -48,7 +48,7 @@
 # 📂 Estructura del proyecto
 
 <p align="center">
-  <img src="example/Images/LIB_Project.png" width="500"/>
+  <img src="Images/LIB_Project.png" width="500"/>
 </p>
 
 💡 Aquí encontrarás:
@@ -62,7 +62,7 @@
 # 📄 Archivo principal
 
 <p align="center">
-  <img src="example/Images/main.png" width="500"/>
+  <img src="Images/main.png" width="500"/>
 </p>
 
 ```cpp
@@ -74,7 +74,7 @@ src/main.cpp
 # ⚙️ Inicialización
 
 <p align="center">
-  <img src="example/Images/ultimate_main.png" width="500"/>
+  <img src="Images/ultimate_main.png" width="500"/>
 </p>
 
 ```cpp
@@ -101,8 +101,8 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 # 📡 Sensores
 
 <p align="center">
-  <img src="example/Images/IMU.png" width="300"/>
-  <img src="example/Images/ENC.png" width="300"/>
+  <img src="Images/IMU.png" width="300"/>
+  <img src="Images/ENC.png" width="300"/>
 </p>
 
 * IMU → orientación
@@ -133,7 +133,7 @@ Sensor → Error → Control → Movimiento
 # 🎮 CONTROL DEL ROBOT (Manual)
 
 <p align="center">
-  <img src="example/Images/Control.png" width="500"/>
+  <img src="Images/Control.png" width="500"/>
 </p>
 
 <p align="center">
@@ -240,7 +240,7 @@ void opcontrol() {
 # 🧭 Tutorial: TURN (Girar paso a paso)
 
 <p align="center">
-  <img src="example/Images/IMU.png" width="350"/>
+  <img src="Images/IMU.png" width="350"/>
 </p>
 
 <p align="center">
@@ -442,4 +442,3 @@ void autonomous() {
   drive(2000);
 }
 ```
-
