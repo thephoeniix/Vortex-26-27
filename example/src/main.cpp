@@ -1,16 +1,19 @@
 #include "main.h"
 
+// Hardware principal del robot.
 pros::MotorGroup left_mg({8, 10});
 pros::MotorGroup right_mg({-1, -2});
 pros::Imu imu(5);
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 
+// Parametros de prueba y telemetria.
 const int IMU_SIGN = -1;
 const int SAMPLE_DELAY_MS = 10;
 const int MAX_TELEMETRY_SAMPLES = 1200;
 const int DRIVE_SPEED = 60;
 const int TURN_SPEED = 50;
 
+// Cada muestra guarda tiempo, IMU y velocidad real de motores.
 struct TelemetrySample {
 	uint32_t time_ms = 0;
 	double yaw = 0;
@@ -27,21 +30,25 @@ void initialize() {
 	pros::lcd::print(0, "A: turn 90  B: drive");
 	pros::lcd::print(1, "Esperando prueba");
 
+	// Espera a que el IMU termine de calibrarse antes de empezar.
 	imu.reset();
 	while (imu.is_calibrating()) {
 		pros::delay(10);
 	}
 }
 
+// Detiene ambos lados del drivetrain.
 void stopDrive() {
 	left_mg.brake();
 	right_mg.brake();
 }
 
+// Reinicia el arreglo de muestras antes de cada prueba.
 void resetTelemetryLog() {
 	telemetry_count = 0;
 }
 
+// Actualiza la muestra actual usando tiempo relativo al inicio de la prueba.
 void updateTelemetrySample(uint32_t start_time_ms) {
 	latest_sample.time_ms = pros::millis() - start_time_ms;
 	latest_sample.yaw = IMU_SIGN * imu.get_yaw();
@@ -49,6 +56,7 @@ void updateTelemetrySample(uint32_t start_time_ms) {
 	latest_sample.right_rpm = right_mg.get_actual_velocity();
 }
 
+// Guarda la muestra actual en el arreglo si todavia hay espacio.
 void saveTelemetrySample(uint32_t start_time_ms) {
 	updateTelemetrySample(start_time_ms);
 
@@ -58,6 +66,7 @@ void saveTelemetrySample(uint32_t start_time_ms) {
 	}
 }
 
+// Muestra una version resumida de la telemetria en control y brain.
 void printLiveTelemetry(const char* test_name) {
 	static uint32_t last_print = 0;
 
@@ -77,6 +86,7 @@ void printLiveTelemetry(const char* test_name) {
 	pros::lcd::print(4, "samples:%4d", telemetry_count);
 }
 
+// Exporta todas las muestras en formato CSV para copiar a Excel o Python.
 void dumpTelemetryCsv(const char* test_name) {
 	printf("\n--- %s CSV START ---\n", test_name);
 	printf("index,time_ms,yaw,left_rpm,right_rpm\n");
@@ -91,6 +101,7 @@ void dumpTelemetryCsv(const char* test_name) {
 	fflush(stdout);
 }
 
+// Prueba de avance recto por tiempo fijo.
 void runDriveTest(uint32_t drive_time_ms) {
 	const uint32_t start_time_ms = pros::millis();
 
@@ -111,6 +122,7 @@ void runDriveTest(uint32_t drive_time_ms) {
 	dumpTelemetryCsv("DRIVE");
 }
 
+// Prueba de giro hasta alcanzar el angulo objetivo.
 void runTurnTest(double angle_deg) {
 	const uint32_t start_time_ms = pros::millis();
 
@@ -146,10 +158,11 @@ void runTurnTest(double angle_deg) {
 	dumpTelemetryCsv("TURN");
 }
 
-void autonomous() {
-	runTurnTest(90);
-}
 
+
+// En driver control:
+// A = prueba de giro
+// B = prueba de avance
 void opcontrol() {
 	bool last_a_press = false;
 	bool last_b_press = false;
