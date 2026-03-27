@@ -32,23 +32,37 @@
 
 # 📁 Crear proyecto
 
+1. Click en **Create Project**
 <p align="center">
   <img src="Images/CreateProject.png" width="400"/>
-  <img src="Images/Create_PROS.png" width="400"/>
 </p>
 
-1. Click en **Create Project**
-2. Selecciona:
+2. Selecciona tu carpeta 
+'DOCS»VEX/VORTEX»CODE' 
+<p align="center">
+  <img src="Images/LIB_Project.png" width="500"/>
+</p>
 
+3. Nombra tu proyecto 'test_robot'
+
+4. Selecciona:
+	
    * V5
    * Latest (Recommended)
+
+<p align="center">
+<img src="Images/Create_PROS.png" width="400"/>
+</p>
+
+
+
 
 ---
 
 # 📂 Estructura del proyecto
 
 <p align="center">
-  <img src="Images/LIB_Project.png" width="500"/>
+  <img src="Images/main.png" width="500"/>
 </p>
 
 💡 Aquí encontrarás:
@@ -57,13 +71,9 @@
 * `include/`
 * `main.cpp`
 
----
 
-# 📄 Archivo principal
 
-<p align="center">
-  <img src="Images/main.png" width="500"/>
-</p>
+## 📄 Archivo principal
 
 ```cpp
 src/main.cpp
@@ -73,26 +83,44 @@ src/main.cpp
 
 # ⚙️ Inicialización
 
+Borra todo en el 'main.cpp' y dejalo asi: 
+
 <p align="center">
   <img src="Images/ultimate_main.png" width="500"/>
 </p>
 
 ```cpp
+#include "main.h"
+
 void initialize() {
   pros::lcd::initialize();
+  pros::lcd::set_text(1, "Hello PROS User!");
+}
+
+void autonomous() {}
+
+void opcontrol() {
+
+  while (true) {
+
+  }
 }
 ```
 
 ---
 
 # ⚙️ Hardware Setup
-
+DECLARAMOS MOTORES
 ```cpp
 pros::MotorGroup left_mg({8, 10});
 pros::MotorGroup right_mg({1, 2});
-
+```
+DECLARAMOS IMU
+```cpp
 pros::Imu imu(5);
-
+```
+DECLARAMOS EL CONTROL
+```cpp
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 ```
 
@@ -100,13 +128,17 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 # 📡 Sensores
 
+* IMU → orientación
 <p align="center">
   <img src="Images/IMU.png" width="300"/>
+</p>
+
+
+* Encoders → movimiento
+<p align="center">
   <img src="Images/ENC.png" width="300"/>
 </p>
 
-* IMU → orientación
-* Encoders → movimiento
 
 💡 360° = 1 rotación
 
